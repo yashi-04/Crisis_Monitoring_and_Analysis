@@ -2,15 +2,33 @@
 
 A comprehensive system for monitoring and analyzing crisis-related discussions on Reddit. This project helps identify and track mental health distress, substance use, and suicidality-related content across various mental health subreddits.
 
-## Features
 
+### Task 1: Social Media Data Extraction & Preprocessing (API Handling & Text Cleaning)
+
+### Deliverables
+* A Python script that retrieves and stores filtered social media posts => src/data_extraction.py 
+* A cleaned dataset ready for NLP analysis => data/reddit_posts.csv
+
+### Task 2: Sentiment & Crisis Risk Classification (NLP & Text Processing)
+### Deliverables
+* A script that classifies posts based on sentiment and risk level => src/sentiment_analysis.py
+* A table or plot showing the distribution of posts by sentiment and risk category => data/sentiment_by_risk.png, sentiment_risk_distribution.png
+
+### Task 3: Crisis Geolocation & Mapping (Basic Geospatial Analysis & Visualization)
+
+### Deliverables
+* A Python script that geocodes posts and generates a heatmap of crisis discussions => src/geolocation.py and data/crisis_heatmap.html
+* A visualization of regional distress patterns in the dataset => data/regional_distress_patterns.png
+
+
+## Features
 - Reddit data extraction from mental health subreddits
 - Enhanced location extraction from post content
 - Sentiment analysis using VADER and TextBlob
 - Risk level classification (High, Moderate, Low)
 - Location extraction and geocoding
 - Interactive heatmap visualization
-- Top location analysis
+- Top 5 location analysis
 
 ## Project Structure
 
@@ -21,7 +39,6 @@ crisis_monitor/
 │   ├── data_extraction.py # Reddit data collection
 │   ├── sentiment_analysis.py # Sentiment and risk analysis
 │   └── geolocation.py    # Location analysis and mapping
-├── notebooks/            # Jupyter notebooks for analysis
 └── requirements.txt      # Project dependencies
 ```
 
