@@ -1,0 +1,15 @@
+pandas==2.0.0
+numpy==1.24.3
+praw==7.7.1
+nltk==3.8.1
+textblob==0.17.1
+vaderSentiment==3.3.2
+spacy==3.5.3
+folium==0.14.0
+plotly==5.15.0
+geopy==2.3.0
+python-dotenv==1.0.0
+emoji==2.8.0
+matplotlib==3.7.1
+seaborn==0.12.2
+requests==2.31.0 
