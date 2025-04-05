@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e8ec9f9dee5768859ebd0df9cc530b07 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e8ec9f9dee5768859ebd0df9cc530b07" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e8ec9f9dee5768859ebd0df9cc530b07 = L.map(
+                "map_e8ec9f9dee5768859ebd0df9cc530b07",
+                {
+                    center: [39.8283, -98.5795],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1a587efc3e2f43ac65734dad0f67d81c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1a587efc3e2f43ac65734dad0f67d81c.addTo(map_e8ec9f9dee5768859ebd0df9cc530b07);
+        
+    
+            var heat_map_2d4626c80ee115ab2ed5aa43bd485c7a = L.heatLayer(
+                [[48.2162669, -122.6842402, 1], [23.3513209, 81.7719068958, 2], [-8.7287308, 115.2365646, 2], [46.1575944, 10.4592382, 3], [47.2879608, 28.5670941, 2], [41.9671423, 22.7772992, 2], [22.3511148, 78.6677428, 2], [41.6500201, -72.7342163, 2], [-4.41564885, 119.61664226567646, 2], [43.9792797, -120.737257, 2], [58.424756, 44.2533273, 2], [39.294076, 35.2316631, 3], [23.6585116, -102.0077097, 1], [42.4618386, -7.5869336, 3], [12.8973681, 100.87208, 2], [32.7174202, -117.162772, 1], [40.0796606, -89.4337288, 2], [56.7861112, -4.1140518, 3], [22.3511148, 78.6677428, 2], [46.1575944, 10.4592382, 3], [34.2331373, -102.4107493, 2], [33.4484367, -112.074141, 2], [11.5024338, 17.7578122, 1], [14.9274109, 46.6084967, 3], [32.7174202, -117.162772, 1], [51.0, 10.0, 1], [64.4459613, -149.680909, 1], [49.0225822, 2.1890291, 2], [-6.257764, 106.7773143, 3], [22.3511148, 78.6677428, 2], [6.3110548, 20.5447525, 2], [40.2253569, -82.6881395, 3], [57.9946553, 15.8926885, 3], [-33.80919185, 151.01493193830197, 2], [43.6211955, -84.6824346, 3], [33.8966402, 135.1499595, 2], [32.7174202, -117.162772, 1], [50.3768971, 19.7671462, 3], [41.6500201, -72.7342163, 1], [36.1130405, -115.06283371496181, 2], [42.9868853, 19.5180992, 2], [29.4263987, -98.5104781, 2], [-37.769201100000004, 144.77401196058068, 1], [41.000028, 19.9999619, 3], [41.000028, 19.9999619, 2], [44.4308975, -89.6884637, 1], [39.7837304, -100.445882, 2], [43.9792797, -120.737257, 1], [37.8989003, -97.7828272, 2], [20.1197725306063, -98.76106334451681, 2], [52.720077450000005, 8.166857904830547, 1]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 15,
+}
+            );
+        
+    
+            heat_map_2d4626c80ee115ab2ed5aa43bd485c7a.addTo(map_e8ec9f9dee5768859ebd0df9cc530b07);
+        
+    
+            var marker_cluster_d56572b2ccb0eae253c2d4d1340283d8 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_12834899c785b86499744e1c37b5351b = L.marker(
+                [46.1575944, 10.4592382],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_d071019d7d2eca62367a8773729b3e5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a285e25df31d510d380afd4fcc86205 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7da3202e4553b86721a7c86eb9b28eae = $(`<div id="html_7da3202e4553b86721a7c86eb9b28eae" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Positive<br>             <b>Location:</b> doesn<br>             <b>Content:</b>  I am currently 22 and  studying in university.   I've been struggling with severe depression for ye...             </div>`)[0];
+                popup_8a285e25df31d510d380afd4fcc86205.setContent(html_7da3202e4553b86721a7c86eb9b28eae);
+            
+        
+
+        marker_12834899c785b86499744e1c37b5351b.bindPopup(popup_8a285e25df31d510d380afd4fcc86205)
+        ;
+
+        
+    
+    
+                marker_12834899c785b86499744e1c37b5351b.setIcon(icon_d071019d7d2eca62367a8773729b3e5f);
+            
+    
+            var marker_4cb477d4a83699cc99da3fafaf5b732c = L.marker(
+                [39.294076, 35.2316631],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_64496d16509119dc5cf0866f98c1dda7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_148fa9202831e22ba768f14dda61169c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0770223116b78f321bf758282be3dea = $(`<div id="html_a0770223116b78f321bf758282be3dea" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> turkey<br>             <b>Content:</b> So I am currently 23 years old & I have clinically diagnosed depression & anxiety, and also fibromya...             </div>`)[0];
+                popup_148fa9202831e22ba768f14dda61169c.setContent(html_a0770223116b78f321bf758282be3dea);
+            
+        
+
+        marker_4cb477d4a83699cc99da3fafaf5b732c.bindPopup(popup_148fa9202831e22ba768f14dda61169c)
+        ;
+
+        
+    
+    
+                marker_4cb477d4a83699cc99da3fafaf5b732c.setIcon(icon_64496d16509119dc5cf0866f98c1dda7);
+            
+    
+            var marker_b2975fd8a76048d8e39241abc46cdf2a = L.marker(
+                [42.4618386, -7.5869336],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_0c852aa01d66b54a422a60ab53722b3f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0bb0e4f091ead9f4a99fa70a32c2dc2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4dfc05c6728c52fcc49e1bd7bf1ec480 = $(`<div id="html_4dfc05c6728c52fcc49e1bd7bf1ec480" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> sober<br>             <b>Content:</b> Sober for a couple of days and over the worst of the withdrawals but now and again I have an intense...             </div>`)[0];
+                popup_0bb0e4f091ead9f4a99fa70a32c2dc2e.setContent(html_4dfc05c6728c52fcc49e1bd7bf1ec480);
+            
+        
+
+        marker_b2975fd8a76048d8e39241abc46cdf2a.bindPopup(popup_0bb0e4f091ead9f4a99fa70a32c2dc2e)
+        ;
+
+        
+    
+    
+                marker_b2975fd8a76048d8e39241abc46cdf2a.setIcon(icon_0c852aa01d66b54a422a60ab53722b3f);
+            
+    
+            var marker_080bf7e93b1680f48d846285bf5c0f34 = L.marker(
+                [56.7861112, -4.1140518],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_af24c2655815ddceb208e74157e9d885 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_759fa50bb7524bda2589f593c5db1693 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4003db9dc2a0ec591d231b317f0bc0f = $(`<div id="html_c4003db9dc2a0ec591d231b317f0bc0f" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> scotland<br>             <b>Content:</b> I am 26F with a great job in finance and an incredible relationship (10+ years and engaged) but I ca...             </div>`)[0];
+                popup_759fa50bb7524bda2589f593c5db1693.setContent(html_c4003db9dc2a0ec591d231b317f0bc0f);
+            
+        
+
+        marker_080bf7e93b1680f48d846285bf5c0f34.bindPopup(popup_759fa50bb7524bda2589f593c5db1693)
+        ;
+
+        
+    
+    
+                marker_080bf7e93b1680f48d846285bf5c0f34.setIcon(icon_af24c2655815ddceb208e74157e9d885);
+            
+    
+            var marker_a0fc79fec7f92bdebecb759669d10bdc = L.marker(
+                [46.1575944, 10.4592382],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_dfd459396f6158921a8460ab02762c5b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e367a150028aeb420ea33e5d397106df = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d03de7e2127f0944adb2f37f41639b26 = $(`<div id="html_d03de7e2127f0944adb2f37f41639b26" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Positive<br>             <b>Location:</b> doesn<br>             <b>Content:</b> **\*WARNING THE FOLLING STORY CONTAINS SUBJECT MATTER RELATED TO AND ABOUT SUICIDE AND PTSD, IF THES...             </div>`)[0];
+                popup_e367a150028aeb420ea33e5d397106df.setContent(html_d03de7e2127f0944adb2f37f41639b26);
+            
+        
+
+        marker_a0fc79fec7f92bdebecb759669d10bdc.bindPopup(popup_e367a150028aeb420ea33e5d397106df)
+        ;
+
+        
+    
+    
+                marker_a0fc79fec7f92bdebecb759669d10bdc.setIcon(icon_dfd459396f6158921a8460ab02762c5b);
+            
+    
+            var marker_5e6392048664c3569808c3a94b610495 = L.marker(
+                [14.9274109, 46.6084967],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_edb5c953ca9ea9e42ce45cab870be360 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80916968b20b82452fc67fee21ce6491 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a22775e1a00533c48e3c253bd66c7b96 = $(`<div id="html_a22775e1a00533c48e3c253bd66c7b96" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> iv<br>             <b>Content:</b> I'm 20 so I'm over 18 and have the right to medical privacy. Thankfully no one contacted my family l...             </div>`)[0];
+                popup_80916968b20b82452fc67fee21ce6491.setContent(html_a22775e1a00533c48e3c253bd66c7b96);
+            
+        
+
+        marker_5e6392048664c3569808c3a94b610495.bindPopup(popup_80916968b20b82452fc67fee21ce6491)
+        ;
+
+        
+    
+    
+                marker_5e6392048664c3569808c3a94b610495.setIcon(icon_edb5c953ca9ea9e42ce45cab870be360);
+            
+    
+            var marker_66130a58d364456ebd5a904ad3ede268 = L.marker(
+                [-6.257764, 106.7773143],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_c424a7669ad8fa9e5cdedf179ab4e062 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f17cff99ab36438f8381417b2baef11c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_721a77045efa7bcd08386f507cf15778 = $(`<div id="html_721a77045efa7bcd08386f507cf15778" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> nooo<br>             <b>Content:</b> Abuse since childhood, life circumstances 99.9% of the time kept knocking me down well into adulthoo...             </div>`)[0];
+                popup_f17cff99ab36438f8381417b2baef11c.setContent(html_721a77045efa7bcd08386f507cf15778);
+            
+        
+
+        marker_66130a58d364456ebd5a904ad3ede268.bindPopup(popup_f17cff99ab36438f8381417b2baef11c)
+        ;
+
+        
+    
+    
+                marker_66130a58d364456ebd5a904ad3ede268.setIcon(icon_c424a7669ad8fa9e5cdedf179ab4e062);
+            
+    
+            var marker_17f3d0d6353aa679920d0924b9251663 = L.marker(
+                [40.2253569, -82.6881395],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_6a5e52b8336dfe7bbd5be508d5f14981 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7724fc0d8a1ec6ba0a8693ac245f181e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0579e8ff495c03ed2ecec0c9419137f9 = $(`<div id="html_0579e8ff495c03ed2ecec0c9419137f9" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> ohio<br>             <b>Content:</b> 27F- I’m not sure what I’m looking for on here. I guess just to tell my story, vent. Maybe someone c...             </div>`)[0];
+                popup_7724fc0d8a1ec6ba0a8693ac245f181e.setContent(html_0579e8ff495c03ed2ecec0c9419137f9);
+            
+        
+
+        marker_17f3d0d6353aa679920d0924b9251663.bindPopup(popup_7724fc0d8a1ec6ba0a8693ac245f181e)
+        ;
+
+        
+    
+    
+                marker_17f3d0d6353aa679920d0924b9251663.setIcon(icon_6a5e52b8336dfe7bbd5be508d5f14981);
+            
+    
+            var marker_645d7f487dcea02acad352b61609576f = L.marker(
+                [57.9946553, 15.8926885],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_e5275e4a301750000dab23085c698a43 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0017ef8028d333e78d6a739668117212 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed6816a2addbd6dfb1139ab40f6cbce2 = $(`<div id="html_ed6816a2addbd6dfb1139ab40f6cbce2" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> kinda<br>             <b>Content:</b> Hi,  I hope everyone is doing well, and apologies in advance!   For context, I’m diagnosed with bipo...             </div>`)[0];
+                popup_0017ef8028d333e78d6a739668117212.setContent(html_ed6816a2addbd6dfb1139ab40f6cbce2);
+            
+        
+
+        marker_645d7f487dcea02acad352b61609576f.bindPopup(popup_0017ef8028d333e78d6a739668117212)
+        ;
+
+        
+    
+    
+                marker_645d7f487dcea02acad352b61609576f.setIcon(icon_e5275e4a301750000dab23085c698a43);
+            
+    
+            var marker_69fa9aa9d2dfac9695624d4a88e7f5b9 = L.marker(
+                [43.6211955, -84.6824346],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_b1c42d0a17d6b2a97697cf5c9ecb01b4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c6ae7531e248a6305445050ac84f366c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32161368dd10c89eb553b745d79833f2 = $(`<div id="html_32161368dd10c89eb553b745d79833f2" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> michigan<br>             <b>Content:</b> I just moved to Michigan a few hours ago because my dad kicked me out of Texas. I’m staying with my ...             </div>`)[0];
+                popup_c6ae7531e248a6305445050ac84f366c.setContent(html_32161368dd10c89eb553b745d79833f2);
+            
+        
+
+        marker_69fa9aa9d2dfac9695624d4a88e7f5b9.bindPopup(popup_c6ae7531e248a6305445050ac84f366c)
+        ;
+
+        
+    
+    
+                marker_69fa9aa9d2dfac9695624d4a88e7f5b9.setIcon(icon_b1c42d0a17d6b2a97697cf5c9ecb01b4);
+            
+    
+            var marker_16c79061931740892dd75d07a7bf8ce6 = L.marker(
+                [50.3768971, 19.7671462],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_cd45b3340d89d1e056fc388f99cf2ed5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_653898ab8fabd9ad8f6365b331752eb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfdf61f6f1ca641c0ed651beff1536c5 = $(`<div id="html_dfdf61f6f1ca641c0ed651beff1536c5" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Negative<br>             <b>Location:</b> adhd<br>             <b>Content:</b> I have always felt emotions intensely and longer than I feel is “normal” for most people. When I get...             </div>`)[0];
+                popup_653898ab8fabd9ad8f6365b331752eb6.setContent(html_dfdf61f6f1ca641c0ed651beff1536c5);
+            
+        
+
+        marker_16c79061931740892dd75d07a7bf8ce6.bindPopup(popup_653898ab8fabd9ad8f6365b331752eb6)
+        ;
+
+        
+    
+    
+                marker_16c79061931740892dd75d07a7bf8ce6.setIcon(icon_cd45b3340d89d1e056fc388f99cf2ed5);
+            
+    
+            var marker_0dfc830c6ad0e905bfc62d63c62cec0f = L.marker(
+                [41.000028, 19.9999619],
+                {
+}
+            ).addTo(marker_cluster_d56572b2ccb0eae253c2d4d1340283d8);
+        
+    
+            var icon_2e9b8aa8cfff95e719ab469984cb487f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cecce7da4032b96e2d04b08e798e8df3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_73f5540c36b90cd81cd109db35b13a3e = $(`<div id="html_73f5540c36b90cd81cd109db35b13a3e" style="width: 100.0%; height: 100.0%;">             <b>Risk Level:</b> High<br>             <b>Sentiment:</b> Positive<br>             <b>Location:</b> AL<br>             <b>Content:</b> Dear all, I need advice because my quality of life is really bad right now. I'm 23M.  Over the last ...             </div>`)[0];
+                popup_cecce7da4032b96e2d04b08e798e8df3.setContent(html_73f5540c36b90cd81cd109db35b13a3e);
+            
+        
+
+        marker_0dfc830c6ad0e905bfc62d63c62cec0f.bindPopup(popup_cecce7da4032b96e2d04b08e798e8df3)
+        ;
+
+        
+    
+    
+                marker_0dfc830c6ad0e905bfc62d63c62cec0f.setIcon(icon_2e9b8aa8cfff95e719ab469984cb487f);
+            
+    
+            marker_cluster_d56572b2ccb0eae253c2d4d1340283d8.addTo(map_e8ec9f9dee5768859ebd0df9cc530b07);
+        
+</script>
+</html>
